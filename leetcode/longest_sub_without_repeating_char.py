@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution1(object):
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str
@@ -18,6 +18,25 @@ class Solution(object):
 
             if (end_index - begin_index) > max_len:
                 max_len = end_index - begin_index
+
+        return max_len
+
+
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        max_len, begin_index = 0, 0
+        char_map = {}
+
+        for index, data in enumerate(s):
+            if data in char_map.keys():
+                begin_index = max(char_map[data], begin_index)
+
+            max_len = max(max_len, index + 1 - begin_index)
+            char_map[data] = index + 1
 
         return max_len
 
