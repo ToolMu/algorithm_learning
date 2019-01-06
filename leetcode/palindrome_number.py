@@ -28,7 +28,6 @@ class Solution(object):
         while x > reverse_num:
             reverse_num = reverse_num * 10 + x % 10
             x = x // 10  # Py3除法的坑
-            print(x, reverse_num)
 
         return x == reverse_num or x == reverse_num // 10
 
